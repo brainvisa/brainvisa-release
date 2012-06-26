@@ -10,19 +10,17 @@ if( NOT DEFINED PYTHON_EXECUTABLE )
 endif( NOT DEFINED PYTHON_EXECUTABLE )
       
 # Index of commands documentation
-if (NOT BRAINVISA_ADVANCED_FEATURE_TEST_MODE)
-  add_custom_target( bv_commands_doc 
-    COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env" "${PYTHON_EXECUTABLE}" ${CREATE_COMMANDS_DOC} -p "${CMAKE_BINARY_DIR}/bin" index_commands.html
-    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/share/doc
-    )
-    
-  add_custom_target( install-bv_commands_doc 
-    COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env" "${PYTHON_EXECUTABLE}" ${CREATE_COMMANDS_DOC} -p "$(BRAINVISA_INSTALL_PREFIX)/bin" "index_commands.html"
-    WORKING_DIRECTORY $(BRAINVISA_INSTALL_PREFIX)/share/doc
-    )
-# else()
-#   BRAINVISA_ADD_COMMAND_HELP_INDEX()
-endif()
+# if (NOT BRAINVISA_ADVANCED_FEATURE_TEST_MODE)
+#   add_custom_target( bv_commands_doc 
+#     COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env" "${PYTHON_EXECUTABLE}" ${CREATE_COMMANDS_DOC} -p "${CMAKE_BINARY_DIR}/bin" index_commands.html
+#     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/share/doc
+#     )
+#     
+#   add_custom_target( install-bv_commands_doc 
+#     COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env" "${PYTHON_EXECUTABLE}" ${CREATE_COMMANDS_DOC} -p "$(BRAINVISA_INSTALL_PREFIX)/bin" "index_commands.html"
+#     WORKING_DIRECTORY $(BRAINVISA_INSTALL_PREFIX)/share/doc
+#     )
+# endif()
 
 # Documentation of axon processes and ontologies
 add_custom_target( bv_ontology_doc
