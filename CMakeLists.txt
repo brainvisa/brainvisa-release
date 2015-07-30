@@ -64,7 +64,7 @@ add_custom_target( brainvisa-release_installer_doc
 
 add_custom_target( install-brainvisa-release_installer_doc
   COMMAND "${CMAKE_COMMAND}" -E copy ${CMAKE_BINARY_DIR}/share/doc/index_commands.html $(BRAINVISA_INSTALL_PREFIX)/share/doc/index_commands.html
-  COMMAND "${CMAKE_COMMAND}" -E copy ${CMAKE_BINARY_DIR}/share/doc/index.html $(BRAINVISA_INSTALL_PREFIX)/share/doc/index.html
+  COMMAND "${CMAKE_COMMAND}" -E copy ${CMAKE_BINARY_DIR}/share/doc/doc_index.html $(BRAINVISA_INSTALL_PREFIX)/share/doc/doc_index.html
   )
 
 add_dependencies( install-brainvisa-release_installer_doc brainvisa-release_installer_doc )
