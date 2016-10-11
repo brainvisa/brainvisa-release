@@ -12,32 +12,32 @@ endif( NOT DEFINED PYTHON_EXECUTABLE )
 # Index of commands documentation
 # if (NOT BRAINVISA_ADVANCED_FEATURE_TEST_MODE)
 #   add_custom_target( bv_commands_doc 
-#     COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env" "${PYTHON_EXECUTABLE}" ${CREATE_COMMANDS_DOC} -p "${CMAKE_BINARY_DIR}/bin" index_commands.html
+#     COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env${CMAKE_EXECUTABLE_SUFFIX}" "${PYTHON_EXECUTABLE}" ${CREATE_COMMANDS_DOC} -p "${CMAKE_BINARY_DIR}/bin" index_commands.html
 #     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/share/doc
 #     )
 #     
 #   add_custom_target( install-bv_commands_doc 
-#     COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env" "${PYTHON_EXECUTABLE}" ${CREATE_COMMANDS_DOC} -p "$(BRAINVISA_INSTALL_PREFIX)/bin" "index_commands.html"
+#     COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env${CMAKE_EXECUTABLE_SUFFIX}" "${PYTHON_EXECUTABLE}" ${CREATE_COMMANDS_DOC} -p "$(BRAINVISA_INSTALL_PREFIX)/bin" "index_commands.html"
 #     WORKING_DIRECTORY $(BRAINVISA_INSTALL_PREFIX)/share/doc
 #     )
 # endif()
 
 # Documentation of axon processes and ontologies
 add_custom_target( bv_ontology_doc
-  COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env" "${PYTHON_EXECUTABLE}" ${CREATE_ONTOLOGY_DOC} ${CMAKE_BINARY_DIR}
+  COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env${CMAKE_EXECUTABLE_SUFFIX}" "${PYTHON_EXECUTABLE}" ${CREATE_ONTOLOGY_DOC} ${CMAKE_BINARY_DIR}
   )
 
 add_custom_target( install-bv_ontology_doc
-  COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env" "${PYTHON_EXECUTABLE}" ${CREATE_ONTOLOGY_DOC} $(BRAINVISA_INSTALL_PREFIX)
+  COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env${CMAKE_EXECUTABLE_SUFFIX}" "${PYTHON_EXECUTABLE}" ${CREATE_ONTOLOGY_DOC} $(BRAINVISA_INSTALL_PREFIX)
   )
 
 # Index of all documentation
 add_custom_target( bv_doc_index 
-  COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env" "${PYTHON_EXECUTABLE}" ${CREATE_DOC_INDEX} ${CMAKE_BINARY_DIR}/share/doc
+  COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env${CMAKE_EXECUTABLE_SUFFIX}" "${PYTHON_EXECUTABLE}" ${CREATE_DOC_INDEX} ${CMAKE_BINARY_DIR}/share/doc
   )
 
 add_custom_target( install-bv_doc_index
-  COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env" "${PYTHON_EXECUTABLE}" ${CREATE_DOC_INDEX} $(BRAINVISA_INSTALL_PREFIX)/share/doc
+  COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env${CMAKE_EXECUTABLE_SUFFIX}" "${PYTHON_EXECUTABLE}" ${CREATE_DOC_INDEX} $(BRAINVISA_INSTALL_PREFIX)/share/doc
   )
 
 add_dependencies( bv_doc_index bv_commands_doc bv_ontology_doc )
@@ -57,7 +57,7 @@ add_dependencies( install-${PROJECT_NAME} install-bv_doc_index )
 
 # this one is the sale as bv_doc_index but without the heavy dependency on usrdoc and devdoc - we assume it has been already done.
 add_custom_target( brainvisa-release_installer_doc
-  COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env" "${PYTHON_EXECUTABLE}" ${CREATE_DOC_INDEX} ${CMAKE_BINARY_DIR}/share/doc
+  COMMAND "${CMAKE_BINARY_DIR}/bin/bv_env${CMAKE_EXECUTABLE_SUFFIX}" "${PYTHON_EXECUTABLE}" ${CREATE_DOC_INDEX} ${CMAKE_BINARY_DIR}/share/doc
   )
 
 # add_dependencies( brainvisa-release_installer_doc bv_commands_doc bv_ontology_doc )
