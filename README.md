@@ -1,5 +1,8 @@
 # brainvisa-release
-Hack for creating the global documentation of a BrainVISA release
+
+~~Hack for creating the global documentation of a BrainVISA release~~
+
+**OBSOLETE: this project is archived, it is not used in BrainVISA anymore.** The documentation-building code has been moved to the `axon` project, and support for the installer has been dropped.
 
 ## Licence
 
